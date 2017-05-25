@@ -1,0 +1,393 @@
+******************************************************************************
+              TMS320C55x Linker PC v4.4.1                      
+******************************************************************************
+>> Linked Sat Dec 12 13:31:06 2015
+
+OUTPUT FILE NAME:   <audio_proj2.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00021ba9
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+                        (bytes)   (bytes)    (bytes)   (bytes)
+----------------------  --------  ---------  --------  --------  ----  --------
+PAGE 0:
+  MMR                   00000000   000000c0  00000000  000000c0  RWIX
+  DARAM0                000000c0   0000ff40  000099f7  00006549  RWIX
+  SARAM0                00010000   00010000  00000000  00010000  RWIX
+  SARAM1                00020000   00020000  00001c0c  0001e3f4  RWIX
+  SARAM2                00040000   0000fe00  000000d4  0000fd2c  RWIX
+  VECS                  0004fe00   00000200  00000100  00000100  RWIX
+  PDROM                 00ff8000   00008000  00000000  00008000  R IX
+
+PAGE 2:
+  IOPORT                00000000   00020000  00000000  00020000  RWI 
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.pinit       0   [ 00040000 ]  00020000          *   00000000   UNINITIALIZED
+
+.stack       0   [ 000000c0 ]  00000060          *   00001000   UNINITIALIZED
+                 [ 000000c0 ]  00000060          *   00001000   --HOLE--
+
+.sysstack 
+*            0   [ 000020c0 ]  00001060          *   00000800   UNINITIALIZED
+                 [ 000020c0 ]  00001060          *   00000800   --HOLE--
+
+.bss         0   [ 000030c0 ]  00001860          *   00002032   UNINITIALIZED
+                 [ 000030c0 ]  00001860          *   00002018   main.obj (.bss)
+                 [ 000070f0 ]  00003878          *   00000004   cfft_noscale.obj (.bss)
+                 [ 000070f8 ]  0000387c          *   00000004   cfft_scale.obj (.bss)
+                 [ 00007100 ]  00003880          *   00000004   cifft_noscale.obj (.bss)
+                 [ 00007108 ]  00003884          *   00000004   cifft_scale.obj (.bss)
+                 [ 00007110 ]  00003888          *   00000004   rts55x.lib : _lock.obj (.bss)
+                 [ 00007118 ]  0000388c          *   00000004              : exit.obj (.bss)
+                 [ 00007120 ]  00003890          *   00000002   i2c.obj (.bss)
+
+.data        0   [ 00007124 ]  00003892          *   00001416   
+                 [ 00007124 ]  00003892          *   00001000   twiddle32.obj (.data:twiddle32)
+                 [ 00009124 ]  00004892          *   00000400   twiddle.obj (.data:twiddle)
+                 [ 00009924 ]  00004c92          *   00000010   sqrtv.obj (.data)
+                 [ 00009944 ]  00004ca2          *   00000006   sine.obj (.data)
+
+.fftcode     0     00009950  [ 00004ca8 ] 00000167          *   
+                   00009950  [ 00004ca8 ] 000000b4          *   unpack.obj (.fftcode)
+                   00009a04  [ 00004d02 ] 000000b2          *   unpacki.obj (.fftcode)
+                   00009ab6  [ 00004d5b ] 00000001          *   --HOLE-- [fill = 20]
+
+.text        0     00020000  [ 00010000 ] 00001c0c          *   
+                   00020000  [ 00010000 ] 000004ec          *   aic3204.obj (.text)
+                   000204ec  [ 00010276 ] 000001f8          *   cfft32_scale.obj (.text)
+                   000206e4  [ 00010372 ] 000001f8          *   cifft32_scale.obj (.text)
+                   000208dc  [ 0001046e ] 000001ee          *   cfft_scale.obj (.text)
+                   00020aca  [ 00010565 ] 000001ee          *   cifft_scale.obj (.text)
+                   00020cb8  [ 0001065c ] 000001bc          *   main.obj (.text)
+                   00020e74  [ 0001073a ] 00000167          *   cfft_noscale.obj (.text)
+                   00020fdb  [ 000107ed+] 00000164          *   gpio.obj (.text)
+                   0002113f  [ 0001089f+] 00000163          *   cifft_noscale.obj (.text)
+                   000212a2  [ 00010951 ] 00000137          *   i2c.obj (.text)
+                   000213d9  [ 000109ec+] 00000128          *   main.obj (.text:retain)
+                   00021501  [ 00010a80+] 00000127          *   unpacki32.obj (.text:unpacki32)
+                   00021628  [ 00010b14 ] 00000116          *   unpack32.obj (.text:unpack32)
+                   0002173e  [ 00010b9f ] 000000de          *   cbrev.obj (.text:cbrev)
+                   0002181c  [ 00010c0e ] 0000009f          *   fltoq15.obj (.text)
+                   000218bb  [ 00010c5d+] 00000079          *   q15tofl.obj (.text)
+                   00021934  [ 00010c9a ] 00000077          *   sine.obj (.text)
+                   000219ab  [ 00010cd5+] 00000075          *   cbrev32.obj (.text)
+                   00021a20  [ 00010d10 ] 0000005f          *   sqrtv.obj (.text)
+                   00021a7f  [ 00010d3f+] 00000054          *   C5515.obj (.text)
+                   00021ad3  [ 00010d69+] 0000004d          *   rts55x.lib : autoinit.obj (.text)
+                   00021b20  [ 00010d90 ] 0000004b          *              : args_main.obj (.text)
+                   00021b6b  [ 00010db5+] 0000003e          *              : exit.obj (.text)
+                   00021ba9  [ 00010dd4+] 00000034          *              : boot.obj (.text)
+                   00021bdd  [ 00010dee+] 00000013          *              : lmpy.obj (.text)
+                   00021bf0  [ 00010df8 ] 00000012          *              : _lock.obj (.text)
+                   00021c02  [ 00010e01 ] 00000007          *              : exit.obj (.text:CIO_breakpoint)
+                   00021c09  [ 00010e04+] 00000002          *   vectors.obj (.text)
+                   00021c0b  [ 00010e05 ] 00000001          *   --HOLE-- [fill = 20]
+
+.cinit       0   [ 00040000 ]  00020000          *   0000006a   
+                 [ 00040000 ]  00020000          *   00000050   main.obj (.cinit)
+                 [ 000400a0 ]  00020050          *   0000000a   rts55x.lib : _lock.obj (.cinit)
+                 [ 000400b4 ]  0002005a          *   0000000a              : exit.obj (.cinit)
+                 [ 000400c8 ]  00020064          *   00000005   i2c.obj (.cinit)
+                 [ 000400d2 ]  00020069          *   00000001   --HOLE-- [fill = 0]
+
+vectors      0     0004fe00  [ 00027f00 ] 00000100          *   
+                   0004fe00  [ 00027f00 ] 00000100          *   vectors.obj (vectors)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+00000001                $TI_capability_requires_rev3
+ffffffff                .bss
+ffffffff                .data
+ffffffff                .text
+00021c03                C$$EXIT
+00021bdd                I$$LMPY
+            00004c92    SqrtTable
+00020000                _AIC3204_rget
+0002004b                _AIC3204_rset
+000212c1                _I2C_close
+000212a2                _I2C_init
+00021352                _I2C_read
+000212ca                _I2C_reset
+000212d8                _I2C_write
+0004fe00                _Reset
+0004fe00                _VECSTART
+            00001060    __STACK_END
+00002000                __STACK_SIZE
+00001000                __SYSSTACK_SIZE
+00000001                __TI_args_main
+ffffffff                ___binit__
+ffffffff                ___bss__
+ffffffff                ___c_args__
+            00020000    ___cinit__
+ffffffff                ___data__
+ffffffff                ___edata__
+ffffffff                ___end__
+ffffffff                ___etext__
+ffffffff                ___pinit__
+ffffffff                ___text__
+00021b20                __args_main
+            0000388c    __cleanup_ptr
+            0000388e    __dtors_ptr
+            00003888    __lock
+00021bdd                __mpyli
+00021c00                __nop
+00021bf8                __register_lock
+00021bf0                __register_unlock
+            00000060    __stack
+            00001060    __sysstack
+            0000388a    __unlock
+00021c02                _abort
+000201e5                _aic3204_mic
+0002006d                _aic3204_sin
+00020370                _aic3204_stereo_in1
+00021ad3                _auto_init
+            00001864    _b1
+            00001c64    _b2
+            00002064    _b3
+            00002464    _b4
+            00002864    _b5
+            00002c64    _b6
+            00003064    _b7
+            00003464    _b8
+            00003864    _buf_in_left_1
+            0000386c    _buf_in_left_2
+            00003866    _buf_in_right_1
+            0000386e    _buf_in_right_2
+            00003876    _buf_index
+            00003868    _buf_out_left_1
+            00003870    _buf_out_left_2
+            0000386a    _buf_out_right_1
+            00003872    _buf_out_right_2
+000210e7                _c5515_GPIO_getInput
+00020fdb                _c5515_GPIO_init
+00020fdf                _c5515_GPIO_setDirection
+0002106a                _c5515_GPIO_setOutput
+00021ac5                _c5515_init
+00021a7f                _c5515_wait
+00021ab3                _c5515_waitusec
+00021ba9                _c_int00
+0002173e                _cbrev
+000219ab                _cbrev32
+000204ec                _cfft32_SCALE
+00020e74                _cfft_NOSCALE
+000208dc                _cfft_SCALE
+            00003874    _change
+000206e4                _cifft32_SCALE
+0002113f                _cifft_NOSCALE
+00020aca                _cifft_SCALE
+            00003877    _effect_flag
+00021b6b                _exit
+0002181c                _fltoq15
+            00003890    _i2c_timeout
+000213d9                _i2s2_tx_isr
+00020dcf                _main
+000218bb                _q15tofl
+00021934                _sine
+00021a20                _sqrt_16
+00009950                _unpack
+00021628                _unpack32
+00009a04                _unpacki
+00021501                _unpacki32
+            00001860    _x
+            00001862    _y
+ffffffff                binit
+            00020000    cinit
+ffffffff                edata
+ffffffff                end
+ffffffff                etext
+0004fe10                int0
+0004fe18                int1
+0004fe60                int10
+0004fe68                int11
+0004fe70                int12
+0004fe78                int13
+0004fe80                int14
+0004fe88                int15
+0004fe90                int16
+0004fe98                int17
+0004fea0                int18
+0004fea8                int19
+0004fe20                int2
+0004feb0                int20
+0004feb8                int21
+0004fec0                int22
+0004fec8                int23
+0004fed0                int24
+0004fed8                int25
+0004fee0                int26
+0004fee8                int27
+0004fef0                int28
+0004fef8                int29
+0004fe28                int3
+0004fe30                int4
+0004fe38                int5
+0004fe40                int6
+0004fe48                int7
+0004fe50                int8
+0004fe58                int9
+0004fe08                nmi
+00021c09                no_isr
+ffffffff                pinit
+            00004892    twiddle
+            00003892    twiddle32
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000001                $TI_capability_requires_rev3
+00000001                __TI_args_main
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+            00000060    __stack
+00001000                __SYSSTACK_SIZE
+00002000                __STACK_SIZE
+            00001060    __STACK_END
+            00001060    __sysstack
+            00001860    _x
+            00001862    _y
+            00001864    _b1
+            00001c64    _b2
+            00002064    _b3
+            00002464    _b4
+            00002864    _b5
+            00002c64    _b6
+            00003064    _b7
+            00003464    _b8
+            00003864    _buf_in_left_1
+            00003866    _buf_in_right_1
+            00003868    _buf_out_left_1
+            0000386a    _buf_out_right_1
+            0000386c    _buf_in_left_2
+            0000386e    _buf_in_right_2
+            00003870    _buf_out_left_2
+            00003872    _buf_out_right_2
+            00003874    _change
+            00003876    _buf_index
+            00003877    _effect_flag
+            00003888    __lock
+            0000388a    __unlock
+            0000388c    __cleanup_ptr
+            0000388e    __dtors_ptr
+            00003890    _i2c_timeout
+            00003892    twiddle32
+            00004892    twiddle
+            00004c92    SqrtTable
+00009950                _unpack
+00009a04                _unpacki
+00020000                _AIC3204_rget
+0002004b                _AIC3204_rset
+0002006d                _aic3204_sin
+000201e5                _aic3204_mic
+00020370                _aic3204_stereo_in1
+000204ec                _cfft32_SCALE
+000206e4                _cifft32_SCALE
+000208dc                _cfft_SCALE
+00020aca                _cifft_SCALE
+00020dcf                _main
+00020e74                _cfft_NOSCALE
+00020fdb                _c5515_GPIO_init
+00020fdf                _c5515_GPIO_setDirection
+0002106a                _c5515_GPIO_setOutput
+000210e7                _c5515_GPIO_getInput
+0002113f                _cifft_NOSCALE
+000212a2                _I2C_init
+000212c1                _I2C_close
+000212ca                _I2C_reset
+000212d8                _I2C_write
+00021352                _I2C_read
+000213d9                _i2s2_tx_isr
+00021501                _unpacki32
+00021628                _unpack32
+0002173e                _cbrev
+0002181c                _fltoq15
+000218bb                _q15tofl
+00021934                _sine
+000219ab                _cbrev32
+00021a20                _sqrt_16
+00021a7f                _c5515_wait
+00021ab3                _c5515_waitusec
+00021ac5                _c5515_init
+00021ad3                _auto_init
+00021b20                __args_main
+00021b6b                _exit
+00021ba9                _c_int00
+00021bdd                I$$LMPY
+00021bdd                __mpyli
+00021bf0                __register_unlock
+00021bf8                __register_lock
+00021c00                __nop
+00021c02                _abort
+00021c03                C$$EXIT
+00021c09                no_isr
+            00020000    ___cinit__
+            00020000    cinit
+0004fe00                _Reset
+0004fe00                _VECSTART
+0004fe08                nmi
+0004fe10                int0
+0004fe18                int1
+0004fe20                int2
+0004fe28                int3
+0004fe30                int4
+0004fe38                int5
+0004fe40                int6
+0004fe48                int7
+0004fe50                int8
+0004fe58                int9
+0004fe60                int10
+0004fe68                int11
+0004fe70                int12
+0004fe78                int13
+0004fe80                int14
+0004fe88                int15
+0004fe90                int16
+0004fe98                int17
+0004fea0                int18
+0004fea8                int19
+0004feb0                int20
+0004feb8                int21
+0004fec0                int22
+0004fec8                int23
+0004fed0                int24
+0004fed8                int25
+0004fee0                int26
+0004fee8                int27
+0004fef0                int28
+0004fef8                int29
+ffffffff                .bss
+ffffffff                .data
+ffffffff                .text
+ffffffff                ___binit__
+ffffffff                ___bss__
+ffffffff                ___c_args__
+ffffffff                ___data__
+ffffffff                ___edata__
+ffffffff                ___end__
+ffffffff                ___etext__
+ffffffff                ___pinit__
+ffffffff                ___text__
+ffffffff                binit
+ffffffff                edata
+ffffffff                end
+ffffffff                etext
+ffffffff                pinit
+
+[137 symbols]
